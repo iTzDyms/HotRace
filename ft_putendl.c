@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_del_tree.c                                      :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cheron <cheron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 17:59:52 by npineau           #+#    #+#             */
-/*   Updated: 2013/12/13 23:20:47 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/22 18:05:57 by cheron            #+#    #+#             */
+/*   Updated: 2013/12/15 05:35:47 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "hotrace.h"
 
-void	ft_del_tree(t_btree **current)
+void	ft_putendl(char const *s)
 {
-	if ((*current)->left)
-		ft_del_tree(&(*current)->left);
-	if ((*current)->right)
-		ft_del_tree(&(*current)->right);
-	ft_del_node(current);
+	ft_putstr(s);
+	ft_putchar('\n');
 }
+

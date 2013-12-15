@@ -6,11 +6,13 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/14 00:00:34 by npineau           #+#    #+#             */
-/*   Updated: 2013/12/14 00:00:38 by npineau          ###   ########.fr       */
+/*   Updated: 2013/12/15 05:35:54 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hot_race.h"
+#include "hotrace.h"
+#include <string.h>
+#include <stdio.h>
 
 t_btree	*ft_search_node(t_btree *current, char *clue)
 {
@@ -20,7 +22,7 @@ t_btree	*ft_search_node(t_btree *current, char *clue)
 	found = NULL;
 	if (current == NULL)
 		return (NULL);
-	ret = ft_strcmp(clue, current->value);
+	ret = ft_strcmp(clue, current->keyword);
 	if (ret > 0 && current->right != NULL)
 		found = ft_search_node(current->right, clue);
 	else if (ret < 0 && current->left != NULL)

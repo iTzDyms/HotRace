@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strfjoin.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cheron <cheron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/14 00:59:49 by cheron            #+#    #+#             */
-/*   Updated: 2013/12/14 01:01:58 by cheron           ###   ########.fr       */
+/*   Created: 2013/11/19 12:41:55 by cheron            #+#    #+#             */
+/*   Updated: 2013/12/15 05:36:37 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strfjoin(char const *s1, char const *s2)
-{
-	size_t	len1;
-	size_t	len2;
-	char	*s3;
+#ifndef HOT_RACE_H
+# include "hotrace.h"
+#endif
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-		if ((s3 = ft_strnew(len1 + len2 + 1)) == NULL)
-		return (NULL);
-	ft_strncpy(s3, s1, len1);
-	ft_strncat(s3, s2, len2);
-	free((void) s1);
-	return (s3);
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parkour.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cheron <cheron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/12 13:22:35 by npineau           #+#    #+#             */
-/*   Updated: 2013/12/13 23:31:40 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/20 14:28:20 by cheron            #+#    #+#             */
+/*   Updated: 2013/12/15 05:35:41 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
-#include "hot_race.h"
 
-void	ft_parkour(t_btree *current)
+#ifndef UNISTD_H
+# define UNISTD_H
+# include <unistd.h>
+#endif
+
+void	ft_putchar(char c)
 {
-	if (current->left != NULL)
-		ft_parkour(current->left);
-	ft_putendl(current->value);
-	if (current->right != NULL)
-		ft_parkour(current->right);
+	write(1, &c, 1);
 }

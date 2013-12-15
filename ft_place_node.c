@@ -6,19 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/11 18:58:06 by npineau           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2013/12/13 23:27:23 by cheron           ###   ########.fr       */
+/*   Updated: 2013/12/15 07:09:40 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-=======
-/*   Updated: 2013/12/13 23:30:13 by npineau          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-#include "hot_race.h"
->>>>>>> bfe224d6751b56c02efce8126124e8a1599b1f69
 #include <string.h>
-#include "hot_race.h"
-
+#include "hotrace.h"
 /*
 ** Place the node to the left if [new] is lower than [current] according to
 ** ft_tri. To the right if greater (or equal). It return [new] if [current]
@@ -27,25 +19,26 @@
 
 t_btree	*ft_place_node(t_btree *current, t_btree *new)
 {
+	int	res;
+
 	if (current == NULL)
 		return (new);
-<<<<<<< HEAD
-	if (ft_strcmp(current, new) < 0)
-=======
-	if (ft_strcmp(current, new) > 0)
->>>>>>> bfe224d6751b56c02efce8126124e8a1599b1f69
+	res = ft_strcmp(new->keyword, current->keyword);
+	if (res < 0)
 	{
 		if (current->left == NULL)
 			current->left = new;
 		else
 			ft_place_node(current->left, new);
 	}
-	else
+	else if (res > 0)
 	{
 		if (current->right == NULL)
 			current->right = new;
 		else
 			ft_place_node(current->right, new);
 	}
+	else
+		ft_swap_node(current, new);
 	return (current);
 }
