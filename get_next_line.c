@@ -6,21 +6,24 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/06 16:16:06 by npineau           #+#    #+#             */
-/*   Updated: 2013/12/15 06:21:02 by npineau          ###   ########.fr       */
+/*   Updated: 2013/12/15 13:55:56 by cheron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "hotrace.h"
-#ifndef UNISTD_H
-# define UNIST_H
-# include <unistd.h>
-#endif
+#include <unistd.h>
+#include <stdlib.h>
+
+static int	ft_cp_buff(char **line, char *buff);
+static int	ft_init_line(char **line);
+static int	ft_check_line(char *buff);
+static int	ft_read_txt(int fd, char **line, char *buff);
 
 /*
 ** Each and every function in this file return an integer, in order to exit.
 ** Whether to return an error or that the line is completed.
 */
 
-int		get_next_line(int const fd, char **line)
+int			get_next_line(int const fd, char **line)
 {
 	int			ret;
 	static char	buff[BUFF_SIZE + 1];
@@ -50,7 +53,7 @@ int		get_next_line(int const fd, char **line)
 ** using ft_cp_buff. Whenever ft_check_line return 1 or -1, it exit the loop.
 */
 
-int		ft_read_txt(int fd, char **line, char *buff)
+static int	ft_read_txt(int fd, char **line, char *buff)
 {
 	int	res;
 	int	ret;
@@ -82,7 +85,7 @@ int		ft_read_txt(int fd, char **line, char *buff)
 ** The temporary string is freed as well.
 */
 
-int		ft_cp_buff(char **line, char *buff)
+static int	ft_cp_buff(char **line, char *buff)
 {
 	char	*c;
 	char	*tmp;
@@ -113,9 +116,9 @@ int		ft_cp_buff(char **line, char *buff)
 ** allocated memory.
 */
 
-int		ft_init_line(char **line)
+static int	ft_init_line(char **line)
 {
-	*line = ft_strnew(0);
+	*line = (char *) malloc(sizeof(char) * 1);
 	if (!*line)
 		return (-1);
 	return (0);
@@ -127,13 +130,14 @@ int		ft_init_line(char **line)
 ** enirely the buffer.
 */
 
-int		ft_check_line(char *buff)
+static int	ft_check_line(char *buff)
 {
-	if (ft_strchr(buff, '\n'))
+	char	*str;
+
+	if ((str = ft_strchr(buff, '\n')))
 	{
-		ft_strcpy(buff, ft_strchr(buff, '\n') + 1);
+		ft_strcpy(buff, (str + 1));
 		return (1);
 	}
-	ft_strclr(buff);
 	return (0);
 }

@@ -6,13 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/14 00:00:34 by npineau           #+#    #+#             */
-/*   Updated: 2013/12/15 05:35:54 by npineau          ###   ########.fr       */
+/*   Updated: 2013/12/15 11:54:22 by cheron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "hotrace.h"
 #include <string.h>
-#include <stdio.h>
 
 t_btree	*ft_search_node(t_btree *current, char *clue)
 {

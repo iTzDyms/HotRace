@@ -6,14 +6,10 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 12:49:33 by npineau           #+#    #+#             */
-/*   Updated: 2013/12/15 05:37:07 by npineau          ###   ########.fr       */
+/*   Updated: 2013/12/15 12:01:19 by cheron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef STDLIB_H
-# define STDLIB_H
-# include <stdlib.h>
-#endif
-#include "hotrace.h"
+#include <stdlib.h>
 
 char	*ft_strnew(size_t size)
 {

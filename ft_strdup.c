@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cheron <cheron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/22 18:05:57 by cheron            #+#    #+#             */
-/*   Updated: 2013/12/15 12:15:01 by cheron           ###   ########.fr       */
+/*   Created: 2013/11/19 13:02:29 by cheron            #+#    #+#             */
+/*   Updated: 2013/12/15 11:59:08 by cheron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include "hotrace.h"
+#include <stdlib.h>
 
-void	ft_putendl(char const *s)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
+	int		i;
+	char	*s2;
 
-	ft_putstr(s);
-	write(1, "\n", 1);
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	s2 = (char *) malloc(i *(sizeof (char)));
+	if (s2 == NULL)
+		return (NULL);
+	s2[i] = '\0';
+	i--;
+	while (i >= 0)
+	{
+		s2[i] = s1[i];
+		i--;
+	}
+	return (s2);
 }

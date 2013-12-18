@@ -6,14 +6,10 @@
 /*   By: cheron <cheron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:41:55 by cheron            #+#    #+#             */
-/*   Updated: 2013/12/15 05:36:37 by npineau          ###   ########.fr       */
+/*   Updated: 2013/12/15 12:00:31 by cheron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef HOT_RACE_H
-# include "hotrace.h"
-#endif
-
+#include <string.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -21,8 +17,6 @@ size_t	ft_strlen(const char *str)
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }

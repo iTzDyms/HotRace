@@ -3,14 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
+#    By: cheron <cheron@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2013/12/14 00:01:12 by npineau           #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2013/12/15 08:10:58 by cheron           ###   ########.fr        #
-=======
-#    Updated: 2013/12/15 07:13:36 by npineau          ###   ########.fr        #
->>>>>>> a6ea9ea043a532ebbde291400b7baa509bc54d20
+#    Created: 2013/12/15 11:28:02 by cheron            #+#    #+#              #
+#    Updated: 2013/12/15 12:55:38 by cheron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +14,7 @@ CC = gcc
 
 NAME = hotrace
 
-SRC = $(TREE)
-
-TREE = hotrace.c \
+SRC =  hotrace.c \
 	   ft_del_tree.c \
 	   ft_place_node.c \
 	   ft_search_node.c \
@@ -36,16 +30,14 @@ TREE = hotrace.c \
 	   ft_strcmp.c \
 	   ft_strlen.c \
 	   ft_strnew.c \
-	   ft_lstadd.c \
-	   ft_lstnew.c \
-	   ft_lstdel.c \
 	   get_next_line.c \
 	   ft_strjoin.c \
 	   ft_strcpy.c \
 	   ft_memccpy.c \
-	   ft_hash.c
+	   ft_hash.c \
 
-FLAGS = -Wall -Wextra -Werror
+
+FLAGS = -Wall -Wextra -Werror -O3
 
 OBJ = $(SRC:.c=.o)
 
@@ -53,11 +45,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-%.o: %.c
+
+%.o: %.c hotrace.h
 	@($(CC) $(FLAG) -c $^)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) hotrace.h.gch
 
 fclean: clean
 	rm -f $(NAME)
